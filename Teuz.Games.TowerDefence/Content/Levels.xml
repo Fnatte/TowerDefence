@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Levels>
+	<Level id="1" order="InOrder">
+		<AttackerPack type="Bug" count="20" interval="1000" />
+	</Level>
+	<Level id="2" order="InOrder">
+		<AttackerPack type="Rat" count="16" interval="1300" />
+	</Level>
+	<Level id="3" order="InOrder">
+		<AttackerPack type="Bug" count="8" interval="700" />
+		<AttackerPack type="Rat" count="8" interval="600" />
+	</Level>
+	<Level id="4" order="InOrder">
+		<AttackerPack type="Wolf" count="12" interval="1800"/>
+	</Level>
+	<Level id="5" order="InOrder">
+		<AttackerPack type="Bug" count="2" interval="600"/>
+		<AttackerPack type="Rat" count="2" interval="1000" />
+		<AttackerPack type="Wolf" count="1" interval="1200" />
+		<AttackerPack type="Bug" count="3" interval="600"/>
+		<AttackerPack type="Wolf" count="5" interval="1400" />
+	</Level>
+	<Level id="6" order="InOrder">
+		<AttackerPack type="Snake" count="15" interval="700" />
+	</Level>
+	<Level id="7" order="InOrder">
+		<AttackerPack type="Ant" count="12" interval="900" />
+	</Level>
+	<Level id="8" order="InOrder">
+		<AttackerPack type="Wolf" count="4" interval="300" />
+		<AttackerPack type="Rat" count="1" interval="100" />
+		<AttackerPack type="Snake" count="1" interval="300" />
+		<AttackerPack type="Ant" count="3" interval="500" />
+		<AttackerPack type="Snake" count="2" interval="300" />
+		<AttackerPack type="Ant" count="5" interval="500" />
+		<AttackerPack type="Snake" count="3" interval="300" />
+		<AttackerPack type="Ant" count="8" interval="300" />
+	</Level>
+	<Level id="9" order="InOrder">
+		<AttackerPack type="Butterfly" count="10" interval="900" />
+	</Level>
+	<Level id="10" order="InOrder">
+		<AttackerPack type="Wolf" count="5" interval="300" />
+		<AttackerPack type="Butterfly" count="10" interval="500" />
+	</Level>
+	<Level id="11" order="InOrder">
+		<AttackerPack type="Turtle" count="15" interval="1000" />
+	</Level>
+	<Level id="12" order="InOrder">
+		<AttackerPack type="Bear" count="15" interval="1000" />
+	</Level>
+</Levels>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teuz.Games.TowerDefence", "Teuz.Games.TowerDefence\Teuz.Games.TowerDefence.csproj", "{7DF63B32-4165-4C5B-B740-104A8F6D8B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teuz.Games.TowerDefence.Test", "Teuz.Games.TowerDefence.Test\Teuz.Games.TowerDefence.Test.csproj", "{A2141372-1855-46CB-819D-80E82EC9831A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DF63B32-4165-4C5B-B740-104A8F6D8B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF63B32-4165-4C5B-B740-104A8F6D8B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF63B32-4165-4C5B-B740-104A8F6D8B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF63B32-4165-4C5B-B740-104A8F6D8B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2141372-1855-46CB-819D-80E82EC9831A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2141372-1855-46CB-819D-80E82EC9831A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2141372-1855-46CB-819D-80E82EC9831A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2141372-1855-46CB-819D-80E82EC9831A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

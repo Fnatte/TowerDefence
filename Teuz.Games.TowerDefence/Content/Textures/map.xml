@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:49717834dd25b3b909942c3225631ca9$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="map.png" width="256" height="512">
+    <sprite n="Ant1" x="2" y="2" w="34" h="32"/>
+    <sprite n="Ant2" x="38" y="2" w="30" h="32"/>
+    <sprite n="Arrival" x="70" y="2" w="32" h="32"/>
+    <sprite n="ArrivalBottom" x="104" y="2" w="32" h="32"/>
+    <sprite n="ArrivalBottomLeft" x="138" y="2" w="32" h="32"/>
+    <sprite n="ArrivalBottomRight" x="172" y="2" w="32" h="32"/>
+    <sprite n="ArrivalLeft" x="206" y="2" w="32" h="32"/>
+    <sprite n="ArrivalRight" x="2" y="36" w="32" h="32"/>
+    <sprite n="ArrivalTop" x="36" y="36" w="32" h="32"/>
+    <sprite n="ArrivalTopLeft" x="70" y="36" w="32" h="32"/>
+    <sprite n="ArrivalTopRight" x="104" y="36" w="32" h="32"/>
+    <sprite n="Arrow" x="138" y="36" w="32" h="32"/>
+    <sprite n="ArrowTower" x="172" y="36" w="32" h="32"/>
+    <sprite n="ArrowTowerButtonHover" x="206" y="36" w="32" h="32"/>
+    <sprite n="ArrowTowerButtonNormal" x="2" y="70" w="32" h="32"/>
+    <sprite n="ArrowTowerButtonPressed" x="36" y="70" w="32" h="32"/>
+    <sprite n="Bear1" x="70" y="70" w="32" h="32"/>
+    <sprite n="Bear2" x="104" y="70" w="32" h="32"/>
+    <sprite n="BlockTower" x="138" y="70" w="32" h="32"/>
+    <sprite n="BlockTowerButtonHover" x="172" y="70" w="32" h="32"/>
+    <sprite n="BlockTowerButtonNormal" x="206" y="70" w="32" h="32"/>
+    <sprite n="BlockTowerButtonPressed" x="2" y="104" w="32" h="32"/>
+    <sprite n="Bug1" x="36" y="104" w="32" h="32"/>
+    <sprite n="Bug2" x="70" y="104" w="32" h="32"/>
+    <sprite n="Bug3" x="104" y="104" w="32" h="32"/>
+    <sprite n="Butterfly1" x="138" y="104" w="32" h="32"/>
+    <sprite n="Butterfly2" x="172" y="104" w="32" h="32"/>
+    <sprite n="Grass1" x="206" y="104" w="32" h="32"/>
+    <sprite n="Grass2" x="2" y="138" w="32" h="32"/>
+    <sprite n="Grass3" x="36" y="138" w="32" h="32"/>
+    <sprite n="IceEnergy" x="70" y="138" w="32" h="32"/>
+    <sprite n="IceTower" x="104" y="138" w="32" h="32"/>
+    <sprite n="IceTowerButtonHover" x="138" y="138" w="32" h="32"/>
+    <sprite n="IceTowerButtonNormal" x="172" y="138" w="32" h="32"/>
+    <sprite n="IceTowerButtonPressed" x="206" y="138" w="32" h="32"/>
+    <sprite n="PathLightRed" x="2" y="172" w="32" h="32"/>
+    <sprite n="Rat1" x="36" y="172" w="32" h="32"/>
+    <sprite n="Rat2" x="70" y="172" w="32" h="32"/>
+    <sprite n="Rock" x="104" y="172" w="32" h="32"/>
+    <sprite n="RockTower" x="138" y="172" w="32" h="32"/>
+    <sprite n="RockTowerButtonHover" x="172" y="172" w="32" h="32"/>
+    <sprite n="RockTowerButtonNormal" x="206" y="172" w="32" h="32"/>
+    <sprite n="RockTowerButtonPressed" x="2" y="206" w="32" h="32"/>
+    <sprite n="Selected" x="36" y="206" w="32" h="32"/>
+    <sprite n="Snake1" x="70" y="206" w="32" h="32"/>
+    <sprite n="Snake2" x="104" y="206" w="32" h="32"/>
+    <sprite n="Snake3" x="138" y="206" w="32" h="32"/>
+    <sprite n="Snake4" x="172" y="206" w="32" h="32"/>
+    <sprite n="Spawn" x="206" y="206" w="32" h="32"/>
+    <sprite n="SpawnLeft" x="2" y="240" w="32" h="32"/>
+    <sprite n="SpawnRight" x="36" y="240" w="32" h="32"/>
+    <sprite n="Stone1" x="70" y="240" w="32" h="32"/>
+    <sprite n="Turtle1" x="104" y="240" w="32" h="32"/>
+    <sprite n="Turtle2" x="138" y="240" w="32" h="32"/>
+    <sprite n="Wolf1" x="172" y="240" w="32" h="32"/>
+    <sprite n="Wolf2" x="206" y="240" w="32" h="32"/>
+</TextureAtlas>
