@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Teuz.Games.TowerDefence.Scenes;
 
 namespace Teuz.Games.TowerDefence.States
 {
@@ -27,11 +28,15 @@ namespace Teuz.Games.TowerDefence.States
 		public int EarnedCash { get; set; }
 
 		private Player player;
+        private GameScene gameScene;
+        private SceneManager sceneManager;
 
-		public DefendingState(GameStateManager gameStateManager, Player player) : base(gameStateManager)
+		public DefendingState(GameStateManager gameStateManager, Player player, GameScene gameScene, SceneManager sceneManager) : base(gameStateManager)
 		{
 			Health = 5;
 			this.player = player;
+            this.gameScene = gameScene;
+            this.sceneManager = sceneManager;
 		}
 
 		private void Die()

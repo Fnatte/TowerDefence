@@ -55,7 +55,8 @@ namespace Teuz.Games.TowerDefence
 			this.GameStateManager = new GameStateManager();
 			this.SceneManager = new SceneManager();
 
-			GameStateManager.PushState<IntroState>();
+			// GameStateManager.PushState<IntroState>();
+            GameStateManager.PushState<ShoppingState>();
 
 			InputManager.Initialize();
 

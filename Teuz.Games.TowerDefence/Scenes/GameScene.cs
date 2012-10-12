@@ -42,14 +42,14 @@ namespace Teuz.Games.TowerDefence.Scenes
 
 		// public RenderTarget RenderTarget { get { return GameWindow.RenderTarget2D; } }
 
-		public GameScene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer, LevelProvider levelProvider, Player player)
+		public GameScene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer, LevelProvider levelProvider, Player player, GameStateManager gameStateManager)
 			: base(graphicsRenderer, textRenderer)
 		{
 			kernel = NinjectFactory.Kernel;
 			this.levelProvider = levelProvider;
 			this.player = player;
 			World = new World();
-			GameStateManager = new GameStateManager();
+            GameStateManager = gameStateManager;
 			GameStateManager.StateChanged += GameStateManager_StateChanged;
 
 			Console.WriteLine("WorldScene constructed.");
