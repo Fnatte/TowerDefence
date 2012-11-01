@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using SharpDX;
 using SharpDX.Direct2D1;
 using Teuz.Games.TowerDefence.States;
@@ -16,6 +17,7 @@ namespace Teuz.Games.TowerDefence.Scenes
 		private SolidColorBrush brushWhite;
 		private IContentProvider contentProvider;
 		private GameStateManager gameStateManager;
+		private InputManager inputManager;
 
 		private Bitmap bitmapTeuz, bitmapTowerDefence;
 		private RectangleF rectangleTeuz, rectangleTowerDefence;
@@ -27,13 +29,14 @@ namespace Teuz.Games.TowerDefence.Scenes
 		private TimeSpan fadeTimeLogo = TimeSpan.FromSeconds(3f);
 		private TimeSpan fadeTimeTowerDefence = TimeSpan.FromSeconds(1f);
 		private TimeSpan timeBetweenLogoAndTowerDefence = TimeSpan.FromSeconds(2.5f);
-		private TimeSpan totalLifetime = TimeSpan.FromSeconds(6f);
+		private TimeSpan totalLifetime = TimeSpan.FromSeconds(8f);
 
-		public IntroScene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer, IContentProvider contentProvider, GameStateManager gameStateManager)
+		public IntroScene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer, IContentProvider contentProvider, GameStateManager gameStateManager, InputManager inputManager)
 			: base(graphicsRenderer, textRenderer)
 		{
 			this.contentProvider = contentProvider;
 			this.gameStateManager = gameStateManager;
+			this.inputManager = inputManager;
 		}
 
 		public override void Initialize()
@@ -47,7 +50,8 @@ namespace Teuz.Games.TowerDefence.Scenes
 			float halfWidth = GraphicsRenderer.Width/2f;
 			float halfHeight = GraphicsRenderer.Height/2f;
 
-			brushBlack = contentProvider.LoadSolidColorBrush(Color.Black);
+			//brushBlack = contentProvider.LoadSolidColorBrush(Color.Black);
+			brushBlack = new SolidColorBrush(RenderTarget, new Color4(0f, 0f, 0f, 1.0f));
 			brushWhite = contentProvider.LoadSolidColorBrush(Color.White);
 
 			bitmapTeuz = contentProvider.LoadTexture("intro1.png").Bitmap;
@@ -93,6 +97,12 @@ namespace Teuz.Games.TowerDefence.Scenes
 
 		public override void Update(GameTime gameTime)
 		{
+			if (inputManager.MouseReleased != MouseButtons.None || inputManager.KeysPressed.Any(x => x == Keys.Enter))
+			{
+				Next();
+				return;
+			}
+
 			this.elapsed += gameTime.Elapsed;
 			this.alphaBackground = 1 - EaseHelper.Cubic(elapsed.TotalMilliseconds / fadeTimeBackground.TotalMilliseconds);
 			this.alphaTeuz = EaseHelper.Cubic(elapsed.TotalMilliseconds / fadeTimeLogo.TotalMilliseconds);
@@ -109,8 +119,13 @@ namespace Teuz.Games.TowerDefence.Scenes
 
 			if (elapsed > totalLifetime)
 			{
-				gameStateManager.ReplaceState<MenuState>();
+				Next();
 			}
+		}
+
+		private void Next()
+		{
+			gameStateManager.ReplaceState<ShoppingState>();
 		}
 	}
 }

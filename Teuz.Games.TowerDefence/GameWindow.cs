@@ -153,7 +153,8 @@ namespace Teuz.Games.TowerDefence
 
 			RenderLoop.Run(form, () =>
 			{
-				if (isFormClosed) return;
+				if (isFormClosed)
+					return;
 
 				FrameDelta = (float)clock.Update().TotalSeconds;
 				Update(clock);

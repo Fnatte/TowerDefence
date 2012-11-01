@@ -15,13 +15,13 @@ namespace Teuz.Games.TowerDefence.UI
 	{
 		private TextLayout textLayout;
 		private TextFormat textFormat;
-		private SolidColorBrush colorBrush;
 		private Color color;
 		private string text;
 		private string fontFamilyName;
 		private int fontSize;
 
 		public bool AutoSize { get; set; }
+		public SolidColorBrush ColorBrush { get; set; }
 
 		public Color Color
 		{
@@ -30,7 +30,7 @@ namespace Teuz.Games.TowerDefence.UI
 			{
 				color = value;
 				if (ContentProvider != null)
-					colorBrush = ContentProvider.LoadSolidColorBrush(color);
+					ColorBrush = ContentProvider.LoadSolidColorBrush(color);
 			}
 		}
 
@@ -101,7 +101,7 @@ namespace Teuz.Games.TowerDefence.UI
 
 		public override void LoadContent()
 		{
-			colorBrush = ContentProvider.LoadSolidColorBrush(color);
+			ColorBrush = ContentProvider.LoadSolidColorBrush(color);
 			UpdateTextFormat();
 			UpdateTextLayout();
 			contentLoaded = true;
@@ -117,7 +117,7 @@ namespace Teuz.Games.TowerDefence.UI
 			if (textLayout != null && Visible)
 				RenderTarget.DrawTextLayout(
 					Position.ToDrawingPointF(),
-					textLayout, colorBrush);
+					textLayout, ColorBrush);
 		}
 
 		public override void Update(GameTime gameTime)

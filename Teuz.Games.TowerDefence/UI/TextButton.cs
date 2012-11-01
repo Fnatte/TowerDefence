@@ -43,7 +43,7 @@ namespace Teuz.Games.TowerDefence.UI
 
 			backgroundBrush = brushes[State][0];
 			borderBrush = brushes[State][1];
-			textBlock.Color = (Color)brushes[State][2].Color;
+			textBlock.ColorBrush = brushes[State][2];
 
 			textBlock.Update(gameTime);
 			textBlock.Position = Position + new Vector2(0, padding);
@@ -57,6 +57,8 @@ namespace Teuz.Games.TowerDefence.UI
 		public override void LoadContent()
 		{
 			textBlock.LoadContent();
+
+			brushes.Clear();
 
 			brushes.Add(ButtonState.Normal, new [] {
 				ContentProvider.LoadSolidColorBrush(Color.LightCyan),

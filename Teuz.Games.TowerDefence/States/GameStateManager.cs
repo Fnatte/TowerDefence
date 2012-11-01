@@ -27,8 +27,11 @@ namespace Teuz.Games.TowerDefence.States
 
 		protected virtual void OnCurrentStateChanged()
 		{
-			if(CurrentState != null)
+			if (CurrentState != null)
+			{
 				CurrentState.Activate();
+				Console.WriteLine("{0} activated.", CurrentState.GetType().Name);
+			}
 
 			EventHandler temp = StateChanged;
 			if (temp != null)

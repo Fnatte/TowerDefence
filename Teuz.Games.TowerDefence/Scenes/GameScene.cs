@@ -42,14 +42,14 @@ namespace Teuz.Games.TowerDefence.Scenes
 
 		// public RenderTarget RenderTarget { get { return GameWindow.RenderTarget2D; } }
 
-		public GameScene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer, LevelProvider levelProvider, Player player)
+		public GameScene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer, LevelProvider levelProvider, Player player, GameStateManager gameStateManager)
 			: base(graphicsRenderer, textRenderer)
 		{
 			kernel = NinjectFactory.Kernel;
 			this.levelProvider = levelProvider;
 			this.player = player;
+			this.GameStateManager = gameStateManager;
 			World = new World();
-			GameStateManager = new GameStateManager();
 			GameStateManager.StateChanged += GameStateManager_StateChanged;
 
 			Console.WriteLine("WorldScene constructed.");
@@ -69,7 +69,7 @@ namespace Teuz.Games.TowerDefence.Scenes
 				else
 				{
 					// There is no other level, goto end credits state
-					GameStateManager.PushState<EndCreditsState>();
+					GameStateManager.ReplaceState<EndCreditsState>();
 				}
 			}
 		}
