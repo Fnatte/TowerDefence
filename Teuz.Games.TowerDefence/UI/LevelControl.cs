@@ -31,7 +31,7 @@ namespace Teuz.Games.TowerDefence.UI
 			if (!Enabled) return;
 
 			if (gameStateManager.CurrentState is ShoppingState)
-				gameStateManager.PushState<DefendingState>();
+				gameStateManager.ReplaceState<DefendingState>();
 		}
 
 		public override void Update(GameTime gameTime)

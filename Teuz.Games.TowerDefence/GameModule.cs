@@ -45,6 +45,20 @@ namespace Teuz.Games.TowerDefence
 
 			// Entities
 			Bind<Projectile>().ToSelf().WithConstructorArgument("level", 1);
+
+            // GameScene
+            Bind<GameScene>().ToMethod(x =>
+            {
+                var gameScene = x.Kernel.Get<SceneManager>().CurrentScene as GameScene;
+                if (gameScene != null) return gameScene;
+                else return new GameScene(
+                    x.Kernel.Get<IGraphicsRenderer>(),
+                    x.Kernel.Get<ITextRenderer>(),
+                    x.Kernel.Get<LevelProvider>(),
+                    x.Kernel.Get<Player>(),
+                    x.Kernel.Get<GameStateManager>()
+                    );
+            });
 		}
 	}
 }
