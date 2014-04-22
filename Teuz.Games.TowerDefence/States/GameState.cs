@@ -10,6 +10,7 @@ namespace Teuz.Games.TowerDefence
 	abstract class GameState
 	{
 		protected GameStateManager Manager { get; private set; }
+        public bool Initialized { get; set; }
 
 		public GameState(GameStateManager gameStateManager)
 		{
@@ -20,5 +21,10 @@ namespace Teuz.Games.TowerDefence
 		{
 
 		}
+
+        public virtual void Initialize()
+        {
+
+        }
 	}
 }

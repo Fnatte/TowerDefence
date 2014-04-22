@@ -19,6 +19,14 @@ namespace Teuz.Games.TowerDefence.States
 			this.sceneManager = sceneManager;
 		}
 
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            introScene.Initialize();
+            introScene.LoadContent();
+        }
+
 		public override void Activate()
 		{
 			base.Activate();

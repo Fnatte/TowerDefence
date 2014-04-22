@@ -10,8 +10,8 @@ namespace Teuz.Games.TowerDefence
 {
 	interface ICamera : IDrawable
 	{
-		DrawingPointF GetPosition(Tile tile);
-		Tile GetTileFromPosition(DrawingPointF position);
+		Vector2 GetPosition(Tile tile);
+        Tile GetTileFromPosition(Vector2 position);
 		int GetTileSize();
 	}
 }

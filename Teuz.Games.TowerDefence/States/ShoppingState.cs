@@ -11,7 +11,6 @@ namespace Teuz.Games.TowerDefence.States
 	{
 		private GameScene gameScene;
 		private SceneManager sceneManager;
-		private bool firstTimeActivated = true;
 
 		public ShoppingState(GameStateManager gameStateManager, SceneManager sceneManager, GameScene gameState)
 			: base(gameStateManager)
@@ -20,18 +19,20 @@ namespace Teuz.Games.TowerDefence.States
 			this.sceneManager = sceneManager;
 		}
 
+        public override void Initialize()
+        {
+            if (!gameScene.Initialized)
+            {
+                gameScene.Initialize();
+                gameScene.LoadContent();
+            }
+        }
+
 		public override void Activate()
 		{
 			base.Activate();
 
 			sceneManager.CurrentScene = gameScene;
-
-			if (firstTimeActivated)
-			{
-				gameScene.Initialize();
-				gameScene.LoadContent();
-				firstTimeActivated = false;
-			}
 		}
 	}
 }

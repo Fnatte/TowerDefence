@@ -15,6 +15,7 @@ namespace Teuz.Games.TowerDefence.Scenes
 		public ITextRenderer TextRenderer { get; private set; }
 		public FactoryDWrite FactoryDWrite { get { return TextRenderer.FactoryDWrite; } }
 		public RenderTarget RenderTarget { get { return GraphicsRenderer.RenderTarget; } }
+        public bool Initialized { get; set; }
 
 		public Scene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer)
 		{
@@ -22,7 +23,11 @@ namespace Teuz.Games.TowerDefence.Scenes
 			this.TextRenderer = textRenderer;
 		}
 
-		public abstract void Initialize();
+        public virtual void Initialize()
+        {
+            Initialized = true;
+        }
+
 		public abstract void LoadContent();
 		public abstract void UnloadContent();
 

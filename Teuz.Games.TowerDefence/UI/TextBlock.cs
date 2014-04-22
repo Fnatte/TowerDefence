@@ -116,7 +116,7 @@ namespace Teuz.Games.TowerDefence.UI
 		{
 			if (textLayout != null && Visible)
 				RenderTarget.DrawTextLayout(
-					Position.ToDrawingPointF(),
+					Position,
 					textLayout, ColorBrush);
 		}
 

@@ -93,7 +93,7 @@ namespace Teuz.Games.TowerDefence
 
 					// Go to shopping state
 					// gameStateManager.PushState<ShoppingState>();
-					gameStateManager.PopState();
+					gameStateManager.ReplaceState<ShoppingState>();
 
 					// Reset SpawnProvider state
 					ResetState();

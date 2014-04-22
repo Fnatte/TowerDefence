@@ -15,7 +15,7 @@ namespace Teuz.Games.TowerDefence.Scenes
 
 		public override void Initialize()
 		{
-			
+            base.Initialize();
 		}
 
 		public override void LoadContent()

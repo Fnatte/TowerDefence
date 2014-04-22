@@ -77,7 +77,7 @@ namespace Teuz.Games.TowerDefence
 					int y = int.Parse(element.Attribute("y").Value);
 					int w = int.Parse(element.Attribute("w").Value);
 					int h = int.Parse(element.Attribute("h").Value);
-					textureMap.SourceRectangle = new RectangleF(x, y, x+w, y+h);
+					textureMap.SourceRectangle = new RectangleF(x, y, w, h);
 					return textureMap;
 				}
 			}
@@ -125,7 +125,7 @@ namespace Teuz.Games.TowerDefence
 			{
 				var sourceArea = new System.Drawing.Rectangle(0, 0, bitmap.Width, bitmap.Height);
 				var bitmapProperties = new BitmapProperties(new PixelFormat(Format.R8G8B8A8_UNorm, AlphaMode.Premultiplied));
-				var size = new System.Drawing.Size(bitmap.Width, bitmap.Height);
+				var size = new Size2(bitmap.Width, bitmap.Height);
 
 				// Transform pixels from BGRA to RGBA
 				int stride = bitmap.Width * sizeof(int);

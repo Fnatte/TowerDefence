@@ -79,12 +79,12 @@ namespace Teuz.Games.TowerDefence.UI
 			if (!Visible) return;
 
 			RenderTarget.FillRectangle(
-				new RectangleF(Position.X, Position.Y, Position.X + Width, Position.Y + Height),
+				new RectangleF(Position.X, Position.Y, Width, Height),
 				BackgroundBrush
 			);
 
 			RenderTarget.FillRectangle(
-				new RectangleF(Position.X, Position.Y, Position.X + Width, Position.Y + HeaderHeight),
+				new RectangleF(Position.X, Position.Y, Width, HeaderHeight),
 				HeaderBackgroundBrush
 			);
 
@@ -92,14 +92,14 @@ namespace Teuz.Games.TowerDefence.UI
 			tbTitle.Draw(gameTime);
 
 			RenderTarget.DrawLine(
-				(Position + new Vector2(0, HeaderHeight)).ToDrawingPointF(),
-				(Position + new Vector2(Width, HeaderHeight)).ToDrawingPointF(),
+				(Position + new Vector2(0, HeaderHeight)),
+				(Position + new Vector2(Width, HeaderHeight)),
 				OutlineBrush
 			);
 
 			RenderTarget.DrawLine(
-				(Position + new Vector2(0, Height)).ToDrawingPointF(),
-				(Position + new Vector2(Width, Height)).ToDrawingPointF(),
+				(Position + new Vector2(0, Height)),
+				(Position + new Vector2(Width, Height)),
 				OutlineBrush
 			);
 

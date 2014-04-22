@@ -39,6 +39,15 @@ namespace Teuz.Games.TowerDefence.States
             this.sceneManager = sceneManager;
 		}
 
+        public override void Initialize()
+        {
+            if(!gameScene.Initialized)
+            {
+                gameScene.Initialize();
+                gameScene.LoadContent();
+            }
+        }
+
 		private void Die()
 		{
 			Manager.PopState();

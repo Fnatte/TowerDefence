@@ -29,6 +29,13 @@ namespace Teuz.Games.TowerDefence.States
 		{
 			if (CurrentState != null)
 			{
+                if(!CurrentState.Initialized)
+                {
+                    CurrentState.Initialize();
+                    CurrentState.Initialized = true;
+                    Console.WriteLine("{0} initialized.", CurrentState.GetType().Name);
+                }
+
 				CurrentState.Activate();
 				Console.WriteLine("{0} activated.", CurrentState.GetType().Name);
 			}

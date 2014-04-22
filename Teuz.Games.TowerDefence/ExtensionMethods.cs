@@ -9,30 +9,14 @@ namespace Teuz.Games.TowerDefence
 {
 	static class ExtensionMethods
 	{
-		// Vector2
-		public static DrawingPointF ToDrawingPointF(this Vector2 vector)
-		{
-			return new DrawingPointF(vector.X, vector.Y);
-		}
-
 		// Drawing.Point
-		public static DrawingPointF ToDrawingPointF(this System.Drawing.Point point)
-		{
-			return new DrawingPointF(point.X, point.Y);
-		}
 		public static Vector2 ToVector2(this System.Drawing.Point point)
 		{
 			return new Vector2(point.X, point.Y);
 		}
 
-		// DrawingPointF
-		public static Vector2 ToVector2(this DrawingPointF point)
-		{
-			return new Vector2(point.X, point.Y);
-		}
-
-		// DrawingSize
-		public static Vector2 ToVector2(this DrawingSize point)
+		// Size2
+		public static Vector2 ToVector2(this Size2 point)
 		{
 			return new Vector2(point.Width, point.Height);
 		}

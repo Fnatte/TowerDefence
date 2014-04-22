@@ -28,7 +28,7 @@ namespace Teuz.Games.TowerDefence.UI
 		public override void Draw(GameTime gameTime)
 		{
 			RenderTarget.FillRectangle(
-				new RectangleF(Position.X, Position.Y, Position.X + Width, Position.Y + Height),
+				new RectangleF(Position.X, Position.Y, Width, Height),
 				BackgroundBrush
 			);
 

@@ -41,7 +41,7 @@ namespace Teuz.Games.TowerDefence.Scenes
 
 		public override void Initialize()
 		{
-			
+            base.Initialize();
 		}
 
 		public override void LoadContent()
@@ -57,12 +57,12 @@ namespace Teuz.Games.TowerDefence.Scenes
 			bitmapTeuz = contentProvider.LoadTexture("intro1.png").Bitmap;
 			x = halfWidth - bitmapTeuz.Size.Width/2f;
 			y = halfHeight - bitmapTeuz.Size.Height/2f;
-			rectangleTeuz = new RectangleF(x, y, bitmapTeuz.Size.Width + x, bitmapTeuz.Size.Height + y);
+			rectangleTeuz = new RectangleF(x, y, bitmapTeuz.Size.Width, bitmapTeuz.Size.Height);
 
 			bitmapTowerDefence = contentProvider.LoadTexture("TowerDefenceLogo.png").Bitmap;
 			x = halfWidth - bitmapTowerDefence.Size.Width / 2f;
 			y = halfHeight - bitmapTowerDefence.Size.Height / 2f;
-			rectangleTowerDefence = new RectangleF(x, y, bitmapTowerDefence.Size.Width + x, bitmapTowerDefence.Size.Height + y);
+			rectangleTowerDefence = new RectangleF(x, y, bitmapTowerDefence.Size.Width, bitmapTowerDefence.Size.Height);
 		}
 
 		public override void UnloadContent()

@@ -50,17 +50,21 @@ namespace Teuz.Games.TowerDefence
 		{
 			// this.input = kernel.Get<InputManager>();
 			//this.contentProvider = kernel.Get<IContentProvider>();
-			this.ContentProvider = new ContentProvider(RenderTarget);
-			this.InputManager = new InputManager(this);
-			this.GameStateManager = new GameStateManager();
-			this.SceneManager = new SceneManager();
 
-			// GameStateManager.PushState<IntroState>();
-            GameStateManager.PushState<ShoppingState>();
+			//this.ContentProvider = new ContentProvider(RenderTarget);
+			// this.InputManager = new InputManager(this);
+			// this.GameStateManager = new GameStateManager();
+			// this.SceneManager = new SceneManager();
+
+            this.ContentProvider = kernel.Get<ContentProvider>();
+            this.InputManager = kernel.Get<InputManager>();
+            this.GameStateManager = kernel.Get<GameStateManager>();
+            this.SceneManager = kernel.Get<SceneManager>();
+
+			GameStateManager.PushState<IntroState>();
+            // GameStateManager.PushState<ShoppingState>();
 
 			InputManager.Initialize();
-
-			SceneManager.CurrentScene.Initialize();
 		}
 
 		protected override void LoadContent()
@@ -71,7 +75,7 @@ namespace Teuz.Games.TowerDefence
 
 			kernel.Get<LevelProvider>().LoadContent();
 
-			SceneManager.CurrentScene.LoadContent();
+			// SceneManager.CurrentScene.LoadContent();
 
 			textFormat = new TextFormat(FactoryDWrite, "Calibri", 18);
 			textBrush = new SolidColorBrush(RenderTarget, Color.Black);
@@ -81,7 +85,7 @@ namespace Teuz.Games.TowerDefence
 
 		protected override void UnloadContent()
 		{
-			
+            base.UnloadContent();
 		}
 
 		protected override void Update(GameTime gameTime)
@@ -89,7 +93,6 @@ namespace Teuz.Games.TowerDefence
 			base.Update(gameTime);
 
 			SceneManager.CurrentScene.Update(gameTime);
-
 			InputManager.Update(gameTime);
 		}
 

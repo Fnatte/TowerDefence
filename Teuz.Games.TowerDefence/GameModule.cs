@@ -18,27 +18,24 @@ namespace Teuz.Games.TowerDefence
 	{
 		public override void Load()
 		{
+            Bind<TowerDefenceWindow>().ToSelf().InSingletonScope();
 
 			Bind<Random>().ToSelf().InSingletonScope();
 			Bind<SpriteFactory>().ToSelf().InSingletonScope();
-			Bind<TowerDefenceWindow>().ToSelf().InSingletonScope();
 			Bind<GameInputContext>().ToSelf().InSingletonScope();
 			Bind<Player>().ToSelf().InSingletonScope();
 			Bind<LevelProvider>().ToSelf().InSingletonScope();
+            Bind<GameStateManager>().ToSelf().InSingletonScope();
+            Bind<SceneManager>().ToSelf().InSingletonScope();
+            Bind<InputManager>().ToSelf().InSingletonScope();
 
 			Bind<ITextRenderer>().ToMethod(x => x.Kernel.Get<TowerDefenceWindow>());
 			Bind<IGraphicsRenderer>().ToMethod(x => x.Kernel.Get<TowerDefenceWindow>());
-			Bind<InputManager>().ToMethod(x => x.Kernel.Get<TowerDefenceWindow>().InputManager);
-			Bind<GameStateManager>().ToMethod(x => x.Kernel.Get<TowerDefenceWindow>().GameStateManager);
-			Bind<RenderTarget>().ToMethod(x => x.Kernel.Get<TowerDefenceWindow>().RenderTarget);
-			Bind<SceneManager>().ToMethod(x => x.Kernel.Get<TowerDefenceWindow>().SceneManager);
 
-			Bind<ICamera>().ToMethod(x => (ICamera)x.Kernel.Get<SceneManager>().CurrentScene);
-			Bind<IWorld>().ToMethod(x => {
-				var gameScene = x.Kernel.Get<SceneManager>().CurrentScene as GameScene;
-				if (gameScene != null) return gameScene.World;
-				return null;
-			});
+			Bind<RenderTarget>().ToMethod(x => x.Kernel.Get<TowerDefenceWindow>().RenderTarget);
+
+			Bind<ICamera>().ToMethod(x => x.Kernel.Get<GameScene>());
+            Bind<IWorld>().ToMethod(x => { return x.Kernel.Get<GameScene>().World; });
 
 			// Content
 			Bind<IContentProvider>().ToMethod(x => x.Kernel.Get<TowerDefenceWindow>().ContentProvider);
@@ -47,6 +44,9 @@ namespace Teuz.Games.TowerDefence
 			Bind<Projectile>().ToSelf().WithConstructorArgument("level", 1);
 
             // GameScene
+            Bind<GameScene>().ToSelf().InScope(x => x.Kernel.Get<SceneManager>());
+
+            /*
             Bind<GameScene>().ToMethod(x =>
             {
                 var gameScene = x.Kernel.Get<SceneManager>().CurrentScene as GameScene;
@@ -56,9 +56,11 @@ namespace Teuz.Games.TowerDefence
                     x.Kernel.Get<ITextRenderer>(),
                     x.Kernel.Get<LevelProvider>(),
                     x.Kernel.Get<Player>(),
-                    x.Kernel.Get<GameStateManager>()
+                    x.Kernel.Get<GameStateManager>(),
+                    x.Kernel.Get<World>()
                     );
             });
+            */
 		}
 	}
 }

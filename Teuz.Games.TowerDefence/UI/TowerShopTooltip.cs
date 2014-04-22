@@ -63,7 +63,7 @@ namespace Teuz.Games.TowerDefence.UI
 
 		public override void Draw(GameTime gameTime)
 		{
-			RectangleF rec = new RectangleF(Position.X, Position.Y, Position.X + Width, Position.Y + Height);
+			RectangleF rec = new RectangleF(Position.X, Position.Y, Width, Height);
 			RenderTarget.FillRectangle(rec, backgroundBrush);
 			RenderTarget.DrawRectangle(rec, borderBrush);
 

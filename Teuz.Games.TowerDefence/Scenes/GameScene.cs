@@ -42,17 +42,18 @@ namespace Teuz.Games.TowerDefence.Scenes
 
 		// public RenderTarget RenderTarget { get { return GameWindow.RenderTarget2D; } }
 
-		public GameScene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer, LevelProvider levelProvider, Player player, GameStateManager gameStateManager)
+		public GameScene(IGraphicsRenderer graphicsRenderer, ITextRenderer textRenderer, LevelProvider levelProvider,
+            Player player, GameStateManager gameStateManager, World world)
 			: base(graphicsRenderer, textRenderer)
 		{
 			kernel = NinjectFactory.Kernel;
 			this.levelProvider = levelProvider;
 			this.player = player;
 			this.GameStateManager = gameStateManager;
-			World = new World();
+			World = world;
 			GameStateManager.StateChanged += GameStateManager_StateChanged;
 
-			Console.WriteLine("WorldScene constructed.");
+			Console.WriteLine("GameScene constructed.");
 		}
 
 		void GameStateManager_StateChanged(object sender, EventArgs e)
@@ -76,6 +77,8 @@ namespace Teuz.Games.TowerDefence.Scenes
 
 		public override void Initialize()
 		{
+            base.Initialize();
+
 			InputContext = kernel.Get<GameInputContext>();
 			InputContext.CurrentSpriteChanged += InputContext_CurrentSpriteChanged;
 			InputContext.StateChanged += InputContext_StateChanged;
@@ -188,7 +191,7 @@ namespace Teuz.Games.TowerDefence.Scenes
 			Console.Write("Creating stones... ");
 			var random = kernel.Get<Random>();
 			int tiles = World.SizeX * World.SizeY;
-			int stones = random.Next(tiles/5, tiles/3);
+            int stones = random.Next(tiles / 5, tiles / 3);
 			var pathfinder = new PathFinding.Pathfinder(World);
 			IList<Tile> path;
 
@@ -203,7 +206,7 @@ namespace Teuz.Games.TowerDefence.Scenes
 					do
 					{
 						tile = World.Tiles.Get(random.Next(World.SizeX), random.Next(World.SizeY));
-					} while (tile.Entities.Count() > 1);
+					} while (tile.Entities.Count > 1);
 
 					// Set tile
 					sprite.Tile = tile;
@@ -249,12 +252,12 @@ namespace Teuz.Games.TowerDefence.Scenes
 			Console.WriteLine("done.");
 		}
 
-		public virtual DrawingPointF GetPosition(int x, int y)
+        public virtual Vector2 GetPosition(int x, int y)
 		{
-			return new DrawingPointF(offsetX + tileSize * x, offsetY + tileSize * y);
+            return new Vector2(offsetX + tileSize * x, offsetY + tileSize * y);
 		}
 
-		public virtual DrawingPointF GetPosition(Tile tile)
+        public virtual Vector2 GetPosition(Tile tile)
 		{
 			return GetPosition(tile.X, tile.Y);
 		}
@@ -264,7 +267,7 @@ namespace Teuz.Games.TowerDefence.Scenes
 			return tileSize;
 		}
 
-		public virtual Tile GetTileFromPosition(DrawingPointF position)
+        public virtual Tile GetTileFromPosition(Vector2 position)
 		{
 			int x = (int)((position.X - offsetX) / tileSize);
 			int y = (int)((position.Y - offsetY) / tileSize);

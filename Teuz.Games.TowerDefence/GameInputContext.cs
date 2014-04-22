@@ -101,7 +101,7 @@ namespace Teuz.Games.TowerDefence
 		{
 			if (input.MouseReleased.HasFlag(MouseButtons.Left))
 			{
-				var tile = camera.GetTileFromPosition(input.MousePoint.ToDrawingPointF());
+				var tile = camera.GetTileFromPosition(input.MousePoint.ToVector2());
 				if (tile != null)
 				{
 					CurrentSprite = (Tower)tile.Entities.FirstOrDefault(x => x is Tower);
@@ -141,7 +141,7 @@ namespace Teuz.Games.TowerDefence
 		{
 			if (CurrentSprite == null) return;
 
-			var tile = camera.GetTileFromPosition(input.MousePoint.ToDrawingPointF());
+			var tile = camera.GetTileFromPosition(input.MousePoint.ToVector2());
 			if(tile == null || tile.CanWalk())
 				CurrentSprite.Tile = tile;
 		}

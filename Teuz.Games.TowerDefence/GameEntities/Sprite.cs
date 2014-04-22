@@ -13,7 +13,7 @@ namespace Teuz.Games.TowerDefence.GameEntities
 	{
 		public Bitmap Bitmap { get; private set; }
 		public RectangleF? SourceRectangle { get; set; }
-		public DrawingSize Size { get; set; }
+        public Size2 Size { get; set; }
 
 		protected ICamera Camera { get; private set; }
 		public IContentProvider ContentProvider { get; private set; }
@@ -76,7 +76,7 @@ namespace Teuz.Games.TowerDefence.GameEntities
 			{
 				Bitmap = textureMap.Bitmap;
 				SourceRectangle = textureMap.SourceRectangle;
-				Size = new DrawingSize((int)SourceRectangle.Value.Width, (int)SourceRectangle.Value.Height);
+				Size = new Size2((int)SourceRectangle.Value.Width, (int)SourceRectangle.Value.Height);
 			}
 			else
 			{
@@ -89,7 +89,7 @@ namespace Teuz.Games.TowerDefence.GameEntities
 			this.Bitmap = bitmap;
 
 			if(Size.Width == 0 && Size.Height == 0)
-				Size = new DrawingSize((int)bitmap.Size.Width, (int)bitmap.Size.Height);
+				Size = new Size2((int)bitmap.Size.Width, (int)bitmap.Size.Height);
 		}
 
 		public virtual RectangleF GetDestinationRectangle()
@@ -98,8 +98,8 @@ namespace Teuz.Games.TowerDefence.GameEntities
 			return new RectangleF(
 				point.X,
 				point.Y,
-				Size.Width + point.X,
-				Size.Height + point.Y
+				Size.Width,
+				Size.Height
 			);
 		}
 
@@ -146,7 +146,7 @@ namespace Teuz.Games.TowerDefence.GameEntities
 
 		public Vector2 GetPosition()
 		{
-			return Camera.GetPosition(Tile).ToVector2() + PositionOffset;
+			return Camera.GetPosition(Tile) + PositionOffset;
 		}
 	}
 }

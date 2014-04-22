@@ -108,7 +108,7 @@ namespace Teuz.Games.TowerDefence.UI
 
 		protected virtual RectangleF GetRectangle()
 		{
-			return new RectangleF(this.Position.X, this.Position.Y, this.Position.X + Width, this.Position.Y + Height);
+			return new RectangleF(this.Position.X, this.Position.Y, Width, Height);
 		}
 
 		public RootControl FindRootControl()
